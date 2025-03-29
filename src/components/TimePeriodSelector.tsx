@@ -25,30 +25,30 @@ export default function TimePeriodSelector({
           <RadioGroupItem
             value="short_term"
             id="short_term"
-            className="border-[#1DB954] text-[#1DB954]"
+            className="border-[#1DB954] text-[#1DB954] cursor-pointer"
           />
           <Label htmlFor="short_term" className="cursor-pointer">
-            Last 4 Weeks
+            Last 4 weeks
           </Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem
             value="medium_term"
             id="medium_term"
-            className="border-[#1DB954] text-[#1DB954]"
+            className="border-[#1DB954] text-[#1DB954] cursor-pointer"
           />
           <Label htmlFor="medium_term" className="cursor-pointer">
-            Last 6 Months
+            Last 6 months
           </Label>
         </div>
         <div className="flex items-center space-x-2">
           <RadioGroupItem
             value="long_term"
             id="long_term"
-            className="border-[#1DB954] text-[#1DB954]"
+            className="border-[#1DB954] text-[#1DB954] cursor-pointer"
           />
           <Label htmlFor="long_term" className="cursor-pointer">
-            All Time
+            All time
           </Label>
         </div>
       </RadioGroup>

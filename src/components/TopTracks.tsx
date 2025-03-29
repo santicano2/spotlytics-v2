@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 
 import type { TimePeriod, Track } from "@/lib/types";
 
@@ -15,8 +14,6 @@ interface TopTracksProps {
 }
 
 export default function TopTracks({ timePeriod }: TopTracksProps) {
-  const { data: session } = useSession();
-
   const [selectedTrack, setSelectedTrack] = useState<Track | null>(null);
   const [tracks, setTracks] = useState<Track[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,13 +21,12 @@ export default function TopTracks({ timePeriod }: TopTracksProps) {
 
   useEffect(() => {
     const fetchTopTracks = async () => {
-      if (!session?.accessToken) return;
       setLoading(true);
       setError(null);
 
       try {
         const response = await fetch(
-          `/api/top-tracks?time_range=${timePeriod}&accessToken=${session.accessToken}`
+          `/api/top-tracks?time_range=${timePeriod}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch top tracks");
@@ -47,7 +43,7 @@ export default function TopTracks({ timePeriod }: TopTracksProps) {
     };
 
     fetchTopTracks();
-  }, [timePeriod, session?.accessToken]);
+  }, [timePeriod]);
 
   if (loading) {
     return (

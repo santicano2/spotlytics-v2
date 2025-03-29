@@ -39,6 +39,7 @@ export default function TrackItem({
           src={track.album?.images?.[0]?.url || "/placeholder.png"}
           alt={`${track.album?.name} cover`}
           fill
+          sizes="(max-width: 640px) 48px, (max-width: 1024px) 64px, 100px"
           className="h-full w-full object-cover rounded"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded">

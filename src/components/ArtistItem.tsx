@@ -37,6 +37,7 @@ export default function ArtistItem({
           src={artist.images?.[0]?.url || "/placeholder.svg"}
           alt={artist.name}
           fill
+          sizes="(max-width: 640px) 48px, (max-width: 1024px) 64px, 100px"
           className="h-full w-full object-cover rounded-full"
         />
       </div>

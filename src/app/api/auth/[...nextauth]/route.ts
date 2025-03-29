@@ -1,21 +1,13 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
 
-declare module "next-auth" {
-  interface Session {
-    accessToken?: string;
-  }
-}
-
-const SPOTIFY_AUTHORIZATION_URL =
-  "https://accounts.spotify.com/authorize?scope=user-top-read";
-
 export const authOptions: NextAuthOptions = {
   providers: [
     SpotifyProvider({
       clientId: process.env.SPOTIFY_CLIENT_ID!,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET!,
-      authorization: SPOTIFY_AUTHORIZATION_URL,
+      authorization:
+        "https://accounts.spotify.com/authorize?scope=user-top-read",
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,

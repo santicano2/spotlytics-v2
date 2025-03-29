@@ -1,13 +1,38 @@
 "use client";
 
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import { redirect } from "next/navigation";
+import { useEffect, useState } from "react";
 import { LogOut, AirplayIcon as Spotify, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { redirect } from "next/navigation";
 
 export default function DashboardHeader() {
   const { data: session } = useSession();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await fetch("/api/user");
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData);
+        }
+      } catch (error) {
+        console.error("Error fetching user profile:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (session) {
+      fetchUserProfile();
+    }
+  }, [session]);
 
   if (!session) {
     redirect("/");
@@ -26,13 +51,26 @@ export default function DashboardHeader() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-2">
-            <div className="h-8 w-8 rounded-full bg-[#282828] flex items-center justify-center">
-              {/* TODO: Cambiar a datos de Spotify */}
-              <User className="h-5 w-5 text-gray-400" />
+          {!loading && user && (
+            <div className="hidden md:flex items-center gap-2">
+              {user.images && user.images[0] ? (
+                <Image
+                  src={user.images[0].url || "/placeholder.svg"}
+                  alt={user.display_name}
+                  width={48}
+                  height={64}
+                  className="rounded-full object-cover"
+                />
+              ) : (
+                <div className="h-8 w-8 rounded-full bg-[#282828] flex items-center justify-center">
+                  <User className="h-5 w-5 text-gray-400" />
+                </div>
+              )}
+              <span className="text-[#1DB954] font-bold">
+                {user.display_name}
+              </span>
             </div>
-            <span className="text-gray-300">User123</span>
-          </div>
+          )}
 
           <Button
             variant="outline"

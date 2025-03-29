@@ -26,13 +26,13 @@ export default function Home() {
               <p className="mt-4">Welcome, {session.user?.name}</p>
               <Button
                 asChild
-                className="w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-medium py-6"
+                className="w-full bg-[#1DB954] hover:bg-[#1ed760] hover:text-black text-white font-medium py-6 cursor-pointer"
               >
                 <Link href="/dashboard">Go to dashboard</Link>
               </Button>
               <Button
                 onClick={() => signOut()}
-                className="w-full bg-red-500 text-white font-medium py-6 cursor-grab"
+                className="w-full hover:bg-red-500 text-white font-medium py-6 cursor-pointer"
               >
                 Logout
               </Button>
@@ -44,7 +44,7 @@ export default function Home() {
               </p>
 
               <Button
-                className="w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-medium py-6 cursor-grab"
+                className="w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-medium py-6 cursor-pointer"
                 onClick={() => signIn("spotify")}
               >
                 <Spotify className="mr-2 h-5 w-5" />

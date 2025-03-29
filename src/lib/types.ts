@@ -1,3 +1,5 @@
+export type TimePeriod = "short_term" | "medium_term" | "long_term";
+
 export interface Track {
   id: string;
   name: string;

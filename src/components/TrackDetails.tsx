@@ -1,13 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Image from "next/image";
 import { Clock, Music, Calendar } from "lucide-react";
 
 import { formatDuration, formatReleaseDate } from "@/lib/utils";
-import { Track } from "@/lib/types";
 
 interface TrackDetailsProps {
-  track: Track;
+  track: any;
 }
 
 export default function TrackDetails({ track }: TrackDetailsProps) {
@@ -29,7 +29,7 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
         />
         <h3 className="text-xl font-bold text-center">{track.name}</h3>
         <p className="text-gray-400">
-          {track.artists.map((artist) => artist.name).join(", ")}
+          {track.artists.map((artist: { name: any }) => artist.name).join(", ")}
         </p>
       </div>
 
@@ -46,7 +46,7 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
           <Clock className="w-5 h-5 mr-3 text-[#1DB954]" />
           <div>
             <p className="text-sm text-gray-400">Duration</p>
-            <p>{formatDuration(track.duration)}</p>
+            <p>{formatDuration(track.duration_ms)}</p>
           </div>
         </div>
 
@@ -54,7 +54,7 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
           <Calendar className="w-5 h-5 mr-3 text-[#1DB954]" />
           <div>
             <p className="text-sm text-gray-400">Release Date</p>
-            <p>{formatReleaseDate(track.releaseDate)}</p>
+            <p>{formatReleaseDate(track.album?.release_date)}</p>
           </div>
         </div>
       </div>

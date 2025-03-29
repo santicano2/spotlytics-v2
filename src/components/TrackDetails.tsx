@@ -23,7 +23,9 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
         <Image
           src={track.album?.images[0]?.url || "/placeholder.png"}
           alt={`${track.name} cover`}
-          className="w-48 h-48 object-cover rounded-md shadow-lg mb-4"
+          width={192}
+          height={192}
+          className="object-cover rounded-md shadow-lg mb-4"
         />
         <h3 className="text-xl font-bold text-center">{track.name}</h3>
         <p className="text-gray-400">
@@ -58,7 +60,7 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
       </div>
 
       <button
-        className="w-full mt-6 bg-[#1DB954] text-black py-2 rounded-full font-medium hover:bg-[#1ed760] transition-colors"
+        className="w-full mt-6 bg-[#1DB954] text-black py-2 rounded-full font-medium hover:bg-[#1ed760] transition-colors cursor-pointer"
         onClick={openSpotify}
       >
         Play on Spotify

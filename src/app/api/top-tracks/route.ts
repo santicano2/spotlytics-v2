@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const accessToken = searchParams.get("accessToken");
-  const timeRange = searchParams.get("timeRange") || "medium_term"; // default to 6 months
+  const timeRange = searchParams.get("timeRange") || "short_term"; // default to 6 months
 
   if (!accessToken) {
     return NextResponse.json(

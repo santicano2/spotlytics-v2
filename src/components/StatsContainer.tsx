@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TimePeriodSelector from "@/components/TimePeriodSelector";
 
 import TopTracks from "./TopTracks";
+import TopArtists from "./TopArtists";
 
 export default function StatsContainer() {
   const [timePeriod, setTimePeriod] = useState<TimePeriod>("short_term");
@@ -36,6 +37,9 @@ export default function StatsContainer() {
         </TabsList>
         <TabsContent value="tracks" className="mt-6">
           <TopTracks timePeriod={timePeriod} />
+        </TabsContent>
+        <TabsContent value="artists" className="mt-6">
+          <TopArtists timePeriod={timePeriod} />
         </TabsContent>
       </Tabs>
     </div>

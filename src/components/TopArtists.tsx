@@ -25,7 +25,7 @@ export default function TopArtists({ timePeriod }: TopArtistsProps) {
       setError(null);
       try {
         const response = await fetch(
-          `/api/spotify/top-artists?time_range=${timePeriod}`
+          `/api/top-artists?time_range=${timePeriod}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch top artists");
@@ -80,7 +80,7 @@ export default function TopArtists({ timePeriod }: TopArtistsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div className="md:col-span-2">
-        <h2 className="text-2xl font-bold mb-4">Your Top Artists</h2>
+        <h2 className="text-2xl font-bold mb-4">Your top artists</h2>
         <ScrollArea className="h-[600px] rounded-md border border-[#333333]">
           <div className="p-4 space-y-4">
             {artists.map((artist, index) => (

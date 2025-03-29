@@ -32,7 +32,7 @@ export default function ArtistItem({
         <span className="font-medium">{position}</span>
       </div>
 
-      <div className="h-12 w-12 mr-4 flex-shrink-0">
+      <div className="relative h-12 w-12 mr-4 shrink-0">
         <Image
           src={artist.images?.[0]?.url || "/placeholder.svg"}
           alt={artist.name}

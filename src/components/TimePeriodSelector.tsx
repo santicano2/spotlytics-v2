@@ -48,7 +48,7 @@ export default function TimePeriodSelector({
             className="border-[#1DB954] text-[#1DB954] cursor-pointer"
           />
           <Label htmlFor="long_term" className="cursor-pointer">
-            All time
+            Last 1 year
           </Label>
         </div>
       </RadioGroup>

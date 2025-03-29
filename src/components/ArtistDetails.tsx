@@ -47,7 +47,7 @@ export default function ArtistDetails({ artist }: ArtistDetailsProps) {
       </div>
 
       <button
-        className="w-full mt-6 bg-[#1DB954] text-black py-2 rounded-full font-medium hover:bg-[#1ed760] transition-colors"
+        className="w-full mt-6 bg-[#1DB954] text-black py-2 rounded-full font-medium hover:bg-[#1ed760] transition-colors cursor-pointer"
         onClick={openSpotify}
       >
         View on Spotify

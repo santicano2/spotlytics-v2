@@ -47,7 +47,7 @@ export default function DashboardHeader() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <Spotify className="h-8 w-8 text-[#1DB954] mr-3" />
-          <h1 className="text-2xl font-bold text-[#1DB954]">Spotlytics</h1>
+          <h1 className="text-2xl font-bold text-[#1DB954]">Spot-lytics</h1>
         </div>
 
         <div className="flex items-center gap-4">

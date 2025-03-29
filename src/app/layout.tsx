@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Spotlytics",
-  description: "Spotlytics stats app",
+  title: "Spot-lytics",
+  description: "Spot-lytics stats app",
 };
 
 export default function RootLayout({

@@ -78,11 +78,13 @@ export default function TopArtists({ timePeriod }: TopArtistsProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
       <div className="md:col-span-2">
-        <h2 className="text-2xl font-bold mb-4">Your top artists</h2>
-        <ScrollArea className="h-[600px] rounded-md border border-[#333333]">
-          <div className="p-4 space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">
+          Your top artists
+        </h2>
+        <ScrollArea className="h-[400px] sm:h-[600px] rounded-md border border-[#333333]">
+          <div className="p-2 sm:p-4 space-y-2 sm:space-y-4">
             {artists.map((artist, index) => (
               <ArtistItem
                 key={artist.id}
@@ -100,8 +102,8 @@ export default function TopArtists({ timePeriod }: TopArtistsProps) {
         {selectedArtist ? (
           <ArtistDetails artist={selectedArtist} />
         ) : (
-          <div className="h-full flex items-center justify-center bg-[#282828] rounded-lg p-6">
-            <p className="text-gray-400 text-center">
+          <div className="h-[200px] md:h-full flex items-center justify-center bg-[#282828] rounded-lg p-4 sm:p-6">
+            <p className="text-gray-400 text-center text-sm sm:text-base">
               Select an artist to see details
             </p>
           </div>

@@ -18,8 +18,8 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
   };
 
   return (
-    <div className="bg-[#282828] rounded-lg p-6 h-full">
-      <div className="flex flex-col items-center mb-6">
+    <div className="bg-[#282828] rounded-lg p-4 sm:p-6 h-full">
+      <div className="flex flex-col items-center mb-4 sm:mb-6">
         <Image
           src={track.album?.images[0]?.url || "/placeholder.png"}
           alt={`${track.name} cover`}
@@ -27,40 +27,46 @@ export default function TrackDetails({ track }: TrackDetailsProps) {
           height={192}
           className="object-cover rounded-md shadow-lg mb-4"
         />
-        <h3 className="text-xl font-bold text-center">{track.name}</h3>
-        <p className="text-gray-400">
+        <h3 className="text-lg sm:text-xl font-bold text-center">
+          {track.name}
+        </h3>
+        <p className="text-gray-400 text-sm sm:text-base">
           {track.artists.map((artist: { name: any }) => artist.name).join(", ")}
         </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         <div className="flex items-center">
-          <Music className="w-5 h-5 mr-3 text-[#1DB954]" />
+          <Music className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[#1DB954]" />
           <div>
-            <p className="text-sm text-gray-400">Album</p>
-            <p>{track.album?.name}</p>
+            <p className="text-xs sm:text-sm text-gray-400">Album</p>
+            <p className="text-sm sm:text-base">{track.album?.name}</p>
           </div>
         </div>
 
         <div className="flex items-center">
-          <Clock className="w-5 h-5 mr-3 text-[#1DB954]" />
+          <Clock className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[#1DB954]" />
           <div>
-            <p className="text-sm text-gray-400">Duration</p>
-            <p>{formatDuration(track.duration_ms)}</p>
+            <p className="text-xs sm:text-sm text-gray-400">Duration</p>
+            <p className="text-sm sm:text-base">
+              {formatDuration(track.duration_ms)}
+            </p>
           </div>
         </div>
 
         <div className="flex items-center">
-          <Calendar className="w-5 h-5 mr-3 text-[#1DB954]" />
+          <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[#1DB954]" />
           <div>
-            <p className="text-sm text-gray-400">Release Date</p>
-            <p>{formatReleaseDate(track.album?.release_date)}</p>
+            <p className="text-xs sm:text-sm text-gray-400">Release Date</p>
+            <p className="text-sm sm:text-base">
+              {formatReleaseDate(track.album?.release_date)}
+            </p>
           </div>
         </div>
       </div>
 
       <button
-        className="w-full mt-6 bg-[#1DB954] text-black py-2 rounded-full font-medium hover:bg-[#1ed760] transition-colors cursor-pointer"
+        className="w-full mt-4 sm:mt-6 bg-[#1DB954] text-black py-1.5 sm:py-2 rounded-full text-sm sm:text-base font-medium hover:bg-[#1ed760] transition-colors cursor-pointer"
         onClick={openSpotify}
       >
         Play on Spotify

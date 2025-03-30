@@ -23,18 +23,18 @@ export default function TrackItem({
   return (
     <div
       className={cn(
-        "flex items-center p-3 rounded-md cursor-pointer transition-colors",
+        "flex items-center p-2 sm:p-3 rounded-md cursor-pointer transition-colors",
         isSelected
           ? "bg-[#1DB954] text-black"
           : "bg-[#282828] hover:bg-[#333333]"
       )}
       onClick={onClick}
     >
-      <div className="flex items-center justify-center w-8 h-8 mr-3">
-        <span className="font-medium">{position}</span>
+      <div className="flex items-center justify-center w-6 sm:w-8 h-6 sm:h-8 mr-2 sm:mr-3 shrink-0">
+        <span className="font-medium text-sm sm:text-base">{position}</span>
       </div>
 
-      <div className="relative h-12 w-12 mr-4 shrink-0">
+      <div className="relative h-10 w-10 sm:h-12 sm:w-12 mr-2 sm:mr-4 shrink-0">
         <Image
           src={track.album?.images?.[0]?.url || "/placeholder.png"}
           alt={`${track.album?.name} cover`}
@@ -48,7 +48,9 @@ export default function TrackItem({
       </div>
 
       <div className="flex-grow min-w-0">
-        <h3 className="font-medium truncate">{track.name}</h3>
+        <h3 className="font-medium truncate text-sm sm:text-base">
+          {track.name}
+        </h3>
         <p
           className={cn(
             "text-sm truncate",
@@ -59,7 +61,7 @@ export default function TrackItem({
         </p>
       </div>
 
-      <div className="ml-2 text-sm text-right">
+      <div className="ml-1 sm:ml-2 text-xs sm:text-sm text-right shrink-0">
         <span className={isSelected ? "text-black/80" : "text-gray-400"}>
           {formatDuration(track.duration_ms)}
         </span>

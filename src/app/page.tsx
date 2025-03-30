@@ -14,7 +14,7 @@ export default function Home() {
       <div className="w-full max-w-md space-y-8 bg-[#282828] p-8 rounded-xl">
         <div className="flex flex-col items-center text-center">
           <Spotify className="h-16 w-16 text-[#1DB954] mb-4" />
-          <h1 className="text-3xl font-bold">Spotlytics</h1>
+          <h1 className="text-3xl font-bold">Spot-lytics</h1>
           <p className="mt-2 text-gray-400">
             View your top tracks and artists from Spotify
           </p>
@@ -26,13 +26,13 @@ export default function Home() {
               <p className="mt-4">Welcome, {session.user?.name}</p>
               <Button
                 asChild
-                className="w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-medium py-6"
+                className="w-full bg-[#1DB954] hover:bg-[#1ed760] hover:text-black text-white font-medium py-6 cursor-pointer"
               >
                 <Link href="/dashboard">Go to dashboard</Link>
               </Button>
               <Button
                 onClick={() => signOut()}
-                className="w-full bg-red-500 text-white font-medium py-6 cursor-grab"
+                className="w-full hover:bg-red-500 text-white font-medium py-6 cursor-pointer"
               >
                 Logout
               </Button>
@@ -44,7 +44,7 @@ export default function Home() {
               </p>
 
               <Button
-                className="w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-medium py-6 cursor-grab"
+                className="w-full bg-[#1DB954] hover:bg-[#1ed760] text-black font-medium py-6 cursor-pointer"
                 onClick={() => signIn("spotify")}
               >
                 <Spotify className="mr-2 h-5 w-5" />

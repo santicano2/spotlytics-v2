@@ -1,5 +1,6 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import SpotifyProvider from "next-auth/providers/spotify";
+import { NextAuthOptions } from "next-auth";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -25,5 +26,6 @@ export const authOptions: NextAuthOptions = {
   },
 };
 
+// ✅ Exporta NextAuth como el handler de la API
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

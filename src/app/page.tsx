@@ -14,7 +14,7 @@ export default function Home() {
       <div className="w-full max-w-md space-y-8 bg-[#282828] p-8 rounded-xl">
         <div className="flex flex-col items-center text-center">
           <Spotify className="h-16 w-16 text-[#1DB954] mb-4" />
-          <h1 className="text-3xl font-bold">Spot-lytics</h1>
+          <h1 className="text-3xl font-bold">Spoti-lytics</h1>
           <p className="mt-2 text-gray-400">
             View your top tracks and artists from Spotify
           </p>
